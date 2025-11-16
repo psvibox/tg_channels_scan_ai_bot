@@ -1,6 +1,7 @@
 # bot_with_crawler.py v1.1
 # pip install aiogram fastapi uvicorn telethon
 import os, html, asyncio, sqlite3, json
+from dotenv import load_dotenv
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 from contextlib import asynccontextmanager, suppress
@@ -18,6 +19,8 @@ from telethon.sessions import StringSession
 from telethon.tl.functions.channels import JoinChannelRequest
 
 # ===== настройки окружения =====
+load_dotenv("/etc/secrets/secrets.env")
+
 PORT = int(os.getenv("PORT", "10000"))  # Render открывает порт из $PORT
 BASE_URL = os.getenv("BASE_URL")        # публичный https URL Render сервиса, например https://your-app.onrender.com
 WEBHOOK_SECRET = os.getenv("WEBHOOK_SECRET", "secret123")  # любой токен (только латиница/цифры/подчёркивание/дефис)
@@ -741,6 +744,7 @@ async def webhook_watchdog():
 @app.get("/")
 async def root():
     return {"status": "ok"}
+
 
 
 
