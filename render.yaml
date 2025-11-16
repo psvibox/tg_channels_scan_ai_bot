@@ -22,7 +22,7 @@ services:
 
       # --- Вебхук ---
       - key: BASE_URL
-        value: https://tg-search-bot-ai-lo14.onrender.com
+        value: https://tg-search-bot-ai.onrender.com
       - key: WEBHOOK_PATH
         value: /webhook
       - key: WEBHOOK_SECRET
@@ -49,5 +49,6 @@ services:
         value: "1"
       - key: PORT
         value: "10000"
+
 
 
